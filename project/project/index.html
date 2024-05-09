@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<HTML>
+<head>
+    <meta charset="utf-8" />
+    <title>Registration</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <link rel="stylesheet" href="regester page/style.css" />
+    <link rel="icon" href="home2/imeges/icon.png" type="image/x-icon">
+
+</head>
+
+<body>
+<div class="container">
+    <h1 class="form-title">Registration</h1>
+    <form id="registrationForm" action="Login page/index3.html" method="post">
+        <div class="main-user-info">
+            <div class="user-input-box">
+                <label for="fullName">Full Name</label>
+                    <input type="text"
+                            id="fullName"
+                            name="fullName"
+                            placeholder="Enter Full Name"/>
+            </div>
+            <div class="user-input-box">
+                <label for="UserName">Usre Name</label>
+                    <input type="text"
+                            id="UsreName"
+                            name="UsreName"
+                            placeholder="Enter Usre Name "/>
+            </div>
+            <div class="user-input-box">
+                <label for="Email">Email</label>
+                    <input type="email"
+                            id="Email"
+                            name="Email"
+                            placeholder="Enter Email "/>
+            </div>
+            <div class="user-input-box">
+                <label for="Phone Numder">Phone Numder</label>
+                    <input type="text"
+                            id="Phone Numder"
+                            name="Phone Numder"
+                            placeholder="Enter Phone Numder "/>
+            </div>
+            <div class="user-input-box">
+                <label for="Password">Password</label>
+                    <input type="password"
+                            id="Password"
+                            name="Password"
+                            placeholder="Enter Password"/>
+            </div>
+            <div class="user-input-box">
+                <label for="Comfirm Password">Comfirm Password</label>
+                    <input type="password"
+                            id="Comfirm Password"
+                            name="Comfirm Password"
+                            placeholder="Enter Comfirm Password "/>
+            </div>
+        </div>
+        <div class="gender-details-box">
+            <span class="gender-title">Gender</span><br>
+            <div class="gender-title">
+            <input type="radio" name="gender" id="male" >
+            <label for="male" >Male</label>&nbsp;&nbsp;
+            <input type="radio" name="gender" id="female" >
+            <label for="female" >Female</label>&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="gender" id="other" >
+            <label for="other" >other</label>
+            </div>
+        </div>
+        <div class="form-submit-btn">
+            <input type="submit" value="Register">
+           
+        </div>
+   
+    </form>
+</div>
+<script>
+    document.getElementById("registrationForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const fullName = document.getElementById("fullName").value;
+        const userName = document.getElementById("UsreName").value;
+        const email = document.getElementById("Email").value;
+        const phone = document.getElementById("Phone Numder").value;
+        const password = document.getElementById("Password").value;
+        const confirmPassword = document.getElementById("Comfirm Password").value;
+        const gender = document.querySelector('input[name="gender"]:checked');
+
+        if (!fullName || !userName || !email || !phone || !password || !confirmPassword || !gender) {
+            alert("يرجى ملء جميع الحقول!");
+            return;
+        }
+
+        const emailRegex = /\S+@\S+\.\S+/;
+        if (!emailRegex.test(email)) {
+            alert("يرجى إدخال عنوان بريد إلكتروني صالح.");
+            return;
+        }
+
+        if (password !== confirmPassword) {
+            alert("كلمات المرور غير متطابقة!");
+            return;
+        }
+
+        // هنا يمكنك إضافة المزيد من الاجراءات مثل إرسال البيانات إلى الخادم
+        // وتنفيذ العمليات اللازمة مثل التحقق من قاعدة البيانات وما إلى ذلك
+
+        // سيتم إعادة توجيه المستخدم إلى صفحة تسجيل الدخول بعد التسجيل بنجاح
+        window.location.href = "Login page/index3.html";
+    });
+</script>
+
+</body>
+</HTML>
